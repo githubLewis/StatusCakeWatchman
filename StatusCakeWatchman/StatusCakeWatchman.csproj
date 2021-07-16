@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Engine\LegacyTracking\**" />
+    <EmbeddedResource Remove="Engine\LegacyTracking\**" />
+    <None Remove="Engine\LegacyTracking\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Configuration\AlertingGroupServices.cs" />
+    <Compile Remove="Configuration\DynamoDb.cs" />
+    <Compile Remove="Configuration\Load\AlarmValuesConverter.cs" />
+    <Compile Remove="Configuration\Load\ResourceThresholdsConverter.cs" />
+    <Compile Remove="Configuration\ReportTarget.cs" />
+    <Compile Remove="Configuration\Sqs.cs" />
+    <Compile Remove="Configuration\Table.cs" />
+    <Compile Remove="Configuration\Validation\DynamoDbValidation.cs" />
+    <Compile Remove="Engine\AlarmDefinition.cs" />
+    <Compile Remove="Engine\Generation\Alarm.cs" />
+    <Compile Remove="Engine\Generation\MetricAlarm.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.8.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="StructureMap" Version="4.7.1" />
+    <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="config - Copy.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="existingalarms.json.old">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
